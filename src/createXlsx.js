@@ -23,10 +23,10 @@ function createXlsx(name, inputObj) {
 
       for (let i = 0; i < keys.length; i++) {
         console.log(`keys[i]: ${keys[i]}`);
-        console.log(`values[i]: ${values[i]}`);
+        console.log(`values[i]: ${values[i].join()}`);
         // Modify the workbook.
         sheet1.cell(`A${i + 1}`).value(keys[i]);
-        sheet1.cell(`B${i + 1}`).value(values[i]);
+        sheet1.cell(`B${i + 1}`).value(values[i].join());
       }
 
       // Write to file.
