@@ -1,6 +1,6 @@
 const XlsxPopulate = require('xlsx-populate');
 
-function readXlsx(inputName, searchingKey, createXlsx, outputName) {
+function readXlsx(inputName, searchingKeys, createXlsx, outputName) {
   XlsxPopulate.fromFileAsync(`./${inputName}.xlsx`)
     .then((workbook) => {
       const outputData = [];
@@ -12,18 +12,20 @@ function readXlsx(inputName, searchingKey, createXlsx, outputName) {
       for (let i = 0; i < len; i++) {
         console.log(sheets[i].name());
 
-        const regex = new RegExp(searchingKey, 'g');
+        for (let k = 0; k < searchingKeys.length; k++) {
+          const regex = new RegExp(searchingKeys[k], 'g');
 
-        const cells = sheets[i].find(regex);
+          const cells = sheets[i].find(regex);
 
-        if (cells && cells.length) {
-          for (let j = 0; j < cells.length; j++) {
-            console.log(cells[j].value());
-            const sheetValues = outputData[sheets[i].name()];
-            if (sheetValues && sheetValues.length) {
-              sheetValues.push(cells[j].value());
-            } else {
-              outputData[sheets[i].name()] = [cells[j].value()];
+          if (cells && cells.length) {
+            for (let j = 0; j < cells.length; j++) {
+              console.log(cells[j].value());
+              const sheetValues = outputData[sheets[i].name()];
+              if (sheetValues && sheetValues.length) {
+                sheetValues.push(cells[j].value());
+              } else {
+                outputData[sheets[i].name()] = [cells[j].value()];
+              }
             }
           }
         }
