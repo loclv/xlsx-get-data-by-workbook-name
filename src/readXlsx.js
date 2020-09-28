@@ -1,6 +1,6 @@
 const XlsxPopulate = require('xlsx-populate');
 
-function readXlsx(inputName, searchingKey) {
+function readXlsx(inputName, searchingKey, createXlsx, outputName) {
   XlsxPopulate.fromFileAsync(`./${inputName}.xlsx`)
     .then((workbook) => {
       const outputData = [];
@@ -30,7 +30,7 @@ function readXlsx(inputName, searchingKey) {
       }
 
       console.log(outputData);
-      return outputData;
+      createXlsx(outputName, outputData);
     })
     .catch((error) => {
       throw error;
