@@ -3,7 +3,7 @@ const XlsxPopulate = require('xlsx-populate');
 function readXlsx(inputName, searchingKey) {
   XlsxPopulate.fromFileAsync(`./${inputName}.xlsx`)
     .then((workbook) => {
-      const outputObj = {};
+      const outputData = [];
 
       const sheets = workbook.sheets();
 
@@ -19,11 +19,18 @@ function readXlsx(inputName, searchingKey) {
         if (cells && cells.length) {
           for (let j = 0; j < cells.length; j++) {
             console.log(cells[j].value());
+            const sheetValues = outputData[sheets[i].name()];
+            if (sheetValues && sheetValues.length) {
+              sheetValues.push(cells[j].value());
+            } else {
+              outputData[sheets[i].name()] = [cells[j].value()];
+            }
           }
         }
       }
 
-      return outputObj;
+      console.log(outputData);
+      return outputData;
     })
     .catch((error) => {
       throw error;
