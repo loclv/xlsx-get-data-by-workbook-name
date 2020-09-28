@@ -1,0 +1,26 @@
+{
+  "name": "xlsx-get-data-by-workbook-name",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "rm -rf node_modules/"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "js-yaml": "^3.14.0",
+    "xlsx-populate": "^1.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  }
+}
