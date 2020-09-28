@@ -13,7 +13,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "js-yaml": "^3.14.0",
-    "xlsx-populate": "^1.21.0"
+    "xlsx-populate": "^1.21.0",
+    "xlsx-populate-wrapper": "^1.0.9"
   },
   "devDependencies": {
     "eslint": "^7.9.0",

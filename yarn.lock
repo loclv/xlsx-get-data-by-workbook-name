@@ -1333,7 +1333,14 @@ write@1.0.3:
   dependencies:
     mkdirp "^0.5.1"
 
-xlsx-populate@^1.21.0:
+xlsx-populate-wrapper@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/xlsx-populate-wrapper/-/xlsx-populate-wrapper-1.0.9.tgz#3fbc3263567c96cd95755cf0b06a4eed8617ca5f"
+  integrity sha512-35+iXWnZ916eStisJJyuVIWSsTWbE7s/TqkRP5hTgjShW8zN4njU7y0Qg66dGKBvdTTOGhfEgQ1YIpQS0aXiBA==
+  dependencies:
+    xlsx-populate "^1.17.0"
+
+xlsx-populate@^1.17.0, xlsx-populate@^1.21.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/xlsx-populate/-/xlsx-populate-1.21.0.tgz#f6cd02401f4cd3d055e81f2b6983ddfeeb60ffe6"
   integrity sha512-8v2Gm8BehXo6LU7KT802QoXTPkYY1SKk5V8g/UuYZnNB3JzXqud/P99Pxr2yXeKyt+sKlCatmidz6jQNie1hRw==
