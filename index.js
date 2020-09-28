@@ -6,8 +6,9 @@ const readXlsx = require('./src/readXlsx');
 dotenv.config();
 
 const inputName = process.env.INPUT_NAME;
+const searchingKey = process.env.SEARCH_KEY;
 
-const readObj = readXlsx(inputName);
+const readObj = readXlsx(inputName, searchingKey);
 console.log(readObj);
 
 const outputName = process.env.OUTPUT_NAME;

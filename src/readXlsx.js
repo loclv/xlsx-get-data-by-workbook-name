@@ -14,9 +14,13 @@ function readXlsx(inputName, searchingKey) {
 
         const regex = new RegExp(searchingKey, 'g');
 
-        sheets[i].find(regex, (match) => {
-          console.log(match);
-        });
+        const cells = sheets[i].find(regex);
+
+        if (cells && cells.length) {
+          for (let j = 0; j < cells.length; j++) {
+            console.log(cells[j].value());
+          }
+        }
       }
 
       return outputObj;
