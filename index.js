@@ -7,4 +7,6 @@ dotenv.config();
 const inputName = process.env.INPUT_NAME;
 const outputName = process.env.OUTPUT_NAME;
 
-createXlsx(outputName);
+const object = {a: 1, b: 2, c: 3};
+
+createXlsx(outputName, object);

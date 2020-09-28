@@ -1,6 +1,8 @@
 const XlsxPopulate = require('xlsx-populate');
 
-function createXlsx(name) {
+function createXlsx(name, inputObj) {
+  if (!name || !inputObj) return;
+
   console.log(`Create ./${name}.xlsx`);
 
   // Load a new blank workbook
@@ -9,10 +11,13 @@ function createXlsx(name) {
 
     sheet1.column('B').width(24);
 
-    for (let i = 1; i <= 10; i++) {
+    const keys = Object.keys(inputObj);
+    const values = Object.values(inputObj);
+
+    for (let i = 0; i < keys.length; i++) {
       // Modify the workbook.
-      sheet1.cell(`A${i}`).value('This is key!');
-      sheet1.cell(`B${i}`).value('This is value!');
+      sheet1.cell(`A${i + 1}`).value(keys[i]);
+      sheet1.cell(`B${i + 1}`).value(values[i]);
     }
 
     // Write to file.
