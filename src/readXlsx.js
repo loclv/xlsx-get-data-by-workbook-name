@@ -1,14 +1,22 @@
-const XLSX = require('xlsx-populate');
+const XlsxPopulate = require('xlsx-populate');
 
-function readXlsx(inputName) {
-  XLSX.fromFileAsync(`./${inputName}.xlsx`)
+function readXlsx(inputName, searchingKey) {
+  XlsxPopulate.fromFileAsync(`./${inputName}.xlsx`)
     .then((workbook) => {
       const outputObj = {};
 
       const sheets = workbook.sheets();
 
-      for (let i = 0; i < sheets.length; i++) {
-        // console.log(JSON.stringify(sheets[i]));
+      const len = sheets.length;
+
+      for (let i = 0; i < len; i++) {
+        console.log(sheets[i].name());
+
+        const regex = new RegExp(searchingKey, 'g');
+
+        sheets[i].find(regex, (match) => {
+          console.log(match);
+        });
       }
 
       return outputObj;
