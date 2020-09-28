@@ -1,6 +1,8 @@
 const XLSX = require('xlsx-populate');
 const dotenv = require('dotenv');
+
 const createXlsx = require('./src/createXlsx');
+const readXlsx = require('./src/readXlsx');
 
 dotenv.config();
 
